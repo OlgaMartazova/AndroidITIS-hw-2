@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listFragment">
 
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.itis.androiditis_hw_2.presentation.fragment.InfoFragment"
+        android:label="InfoFragment"
+        tools:layout="@layout/fragment_info" />
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.itis.androiditis_hw_2.presentation.fragment.ListFragment"
+        android:label="ListFragment"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+    </fragment>
 </navigation>
