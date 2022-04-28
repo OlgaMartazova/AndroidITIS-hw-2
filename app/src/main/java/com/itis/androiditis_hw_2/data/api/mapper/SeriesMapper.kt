@@ -2,16 +2,16 @@ package com.itis.androiditis_hw_2.data.api.mapper
 
 import com.itis.androiditis_hw_2.data.api.model.CharacterResponse
 import com.itis.androiditis_hw_2.data.api.model.CharacterResponseItem
-import com.itis.androiditis_hw_2.domain.entity.Character
+import com.itis.androiditis_hw_2.domain.entity.Person
 import javax.inject.Inject
 
 class SeriesMapper @Inject constructor() {
-    fun map(response: CharacterResponse): Character = mapToCharacter(response[0])
+    fun map(response: CharacterResponse): Person = mapToPerson(response[0])
 
-    fun mapToList(response: CharacterResponse): List<Character> =
-        response.map { item -> mapToCharacter(item) }
+    fun mapToList(response: CharacterResponse): List<Person> =
+        response.map { item -> mapToPerson(item) }
 
-    private fun mapToCharacter(responseItem: CharacterResponseItem): Character = Character(
+    private fun mapToPerson(responseItem: CharacterResponseItem): Person = Person(
         id = responseItem.charId,
         name = responseItem.name,
         nickname = responseItem.nickname,

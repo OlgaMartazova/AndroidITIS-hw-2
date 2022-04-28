@@ -78,6 +78,14 @@ dependencies {
     implementation("com.google.dagger:hilt-android:${dagger}")
     kapt("com.google.dagger:hilt-android-compiler:${dagger}")
 
+    // region moxy
+    def moxy = "2.2.2"
+    implementation "com.github.moxy-community:moxy:$moxy"
+    implementation "com.github.moxy-community:moxy-androidx:$moxy"
+    implementation "com.github.moxy-community:moxy-ktx:$moxy"
+    kapt "com.github.moxy-community:moxy-compiler:$moxy"
+    // endregion
+
     def timber = "4.7.1"
     implementation "com.jakewharton.timber:timber:${timber}"
 
