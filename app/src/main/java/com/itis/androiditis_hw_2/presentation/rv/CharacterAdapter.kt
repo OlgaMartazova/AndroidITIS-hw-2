@@ -3,10 +3,10 @@ package com.itis.androiditis_hw_2.presentation.rv
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
-import com.itis.androiditis_hw_2.domain.entity.Character
+import com.itis.androiditis_hw_2.domain.entity.Person
 
 class CharacterAdapter (
-    private val list: ArrayList<Character>,
+    private val list: ArrayList<Person>,
     private val glide: RequestManager,
     private val selectItem: (Int) -> Unit
 ) : RecyclerView.Adapter<CharacterHolder>() {

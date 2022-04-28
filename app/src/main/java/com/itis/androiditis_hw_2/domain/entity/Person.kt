@@ -1,8 +1,6 @@
 package com.itis.androiditis_hw_2.domain.entity
 
-import com.google.gson.annotations.SerializedName
-
-data class Character(
+data class Person(
     val id: Int,
     val name: String,
     val nickname: String,
