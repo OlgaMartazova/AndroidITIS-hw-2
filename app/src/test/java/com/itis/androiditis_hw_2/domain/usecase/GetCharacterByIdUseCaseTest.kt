@@ -33,9 +33,9 @@ class GetCharacterByIdUseCaseTest {
         val expectedId = 1
         val expectedName = "nickname"
         val expectedCharacter = mockk<Person> { every { nickname } returns expectedName }
+        every { repository.getCharacterById(expectedId) } returns Single.just(expectedCharacter)
 
         //act
-        every { repository.getCharacterById(expectedId) } returns Single.just(expectedCharacter)
         val result = useCase.invoke(expectedId)
 
         //assert

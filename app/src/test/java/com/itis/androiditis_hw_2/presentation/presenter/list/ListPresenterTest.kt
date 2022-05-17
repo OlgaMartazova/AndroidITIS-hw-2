@@ -42,9 +42,9 @@ class ListPresenterTest {
             mockk { every { id } returns 1 },
             mockk { every { id } returns 2 },
         )
+        every { useCase.invoke() } returns Single.just(expectedList)
 
         //act
-        every { useCase.invoke() } returns Single.just(expectedList)
         presenter.onGetCharactersClick()
         verifyOrder {
             viewState.showLoading()
@@ -63,10 +63,9 @@ class ListPresenterTest {
             mockk { every { id } returns 152 },
         )
         val error = mockk<Throwable>()
-
-        //act
         every { useCase.invoke() } returns Single.error(error)
 
+        //act
         presenter.onGetCharactersClick()
         verifyOrder {
             viewState.showLoading()

@@ -10,9 +10,11 @@ import io.mockk.mockk
 import io.mockk.spyk
 import io.reactivex.rxjava3.core.Single
 import org.junit.Before
+import org.junit.BeforeClass
 import org.junit.jupiter.api.extension.ExtendWith
 
 import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import kotlin.test.assertEquals
@@ -39,9 +41,9 @@ class GetAllCharactersUseCaseTest {
             mockk { every { id } returns 1 },
             mockk { every { id } returns 2 },
         )
+        every { repository.getAllCharacters() } returns Single.just(expectedList)
 
         //act
-        every { repository.getAllCharacters() } returns Single.just(expectedList)
         val result = useCase.invoke()
 
         //assert

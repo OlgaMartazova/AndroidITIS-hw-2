@@ -41,9 +41,9 @@ class InfoPresenterTest {
         val expectedId = 1
         val expectedName = "nickname"
         val expectedCharacter = mockk<Person> { every { nickname } returns expectedName }
+        every { useCase.invoke(expectedId) } returns Single.just(expectedCharacter)
 
         //act
-        every { useCase.invoke(expectedId) } returns Single.just(expectedCharacter)
         presenter.onGetCharacterClick(expectedId)
         verifyOrder {
             viewState.showLoading()
@@ -55,14 +55,13 @@ class InfoPresenterTest {
     }
 
     @Test
-    fun onError() {
+    fun onGetCharacterClickException() {
         //arrange
         val expectedId = 150
         val error = mockk<Throwable>()
-
-        //act
         every { useCase.invoke(expectedId) } returns Single.error(error)
 
+        //act
         presenter.onGetCharacterClick(expectedId)
         verifyOrder {
             viewState.showLoading()
