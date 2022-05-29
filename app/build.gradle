@@ -32,6 +32,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -55,10 +58,16 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:${nav_version}"
     implementation "androidx.navigation:navigation-ui-ktx:${nav_version}"
 
+    // region RxJava
+    implementation "io.reactivex.rxjava3:rxjava:3.1.4"
+    implementation 'io.reactivex.rxjava3:rxkotlin:3.0.1'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+
     // region Network
     def retrofit = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:${retrofit}"
     implementation "com.squareup.retrofit2:converter-gson:${retrofit}"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:${retrofit}"
 
     def okhttp = "4.9.3"
     implementation "com.squareup.okhttp3:okhttp:${okhttp}"
