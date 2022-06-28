@@ -24,6 +24,7 @@ class InfoFragment : MvpAppCompatFragment(), InfoView {
     private lateinit var binding: FragmentInfoBinding
     private lateinit var glide: RequestManager
 
+    
     @Inject
     @InjectPresenter
     lateinit var presenter: InfoPresenter
